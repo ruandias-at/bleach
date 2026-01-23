@@ -55,6 +55,14 @@
     .arc-image {
         height: 200px;
     }
+
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .group-title {
+        font-size: 2rem;
+    }
     
     .about-content {
         display: flex;
@@ -92,5 +100,9 @@
     
     .hero-title {
         font-size: 3.5rem;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

@@ -72,6 +72,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inicia o efeito após um breve delay
         setTimeout(typeWriter, 500);
     }
+
+    // Funcionalidade dos cartões de personagens
+    const characterToggles = document.querySelectorAll('.character-toggle');
+
+    characterToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const card = this.closest('.character-card');
+            const details = card.querySelector('.character-details');
+            const icon = this.querySelector('i');
+            
+            // Alterna a classe active
+            details.classList.toggle('active');
+            
+            // Alterna a seta
+            if (details.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+                this.setAttribute('aria-label', 'Ocultar detalhes');
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+                this.setAttribute('aria-label', 'Mostrar detalhes');
+            }
+            
+            // Fecha outros abertos no mesmo grupo (opcional)
+            const group = card.closest('.character-group');
+            if (group) {
+                group.querySelectorAll('.character-details.active').forEach(otherDetails => {
+                    if (otherDetails !== details) {
+                        otherDetails.classList.remove('active');
+                        const otherIcon = otherDetails.closest('.character-card').querySelector('.character-toggle i');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                        otherDetails.closest('.character-card').querySelector('.character-toggle').setAttribute('aria-label', 'Mostrar detalhes');
+                    }
+                });
+            }
+        });
+    });
     
     // Animação suave ao rolar para seções
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
