@@ -493,6 +493,10 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Estilos para as divisões da Soul Society */
+.division-subgroup {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5
 
 /* Seção Sobre */
 .about-section {
