@@ -1,0 +1,433 @@
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --highlight-color: #e94560;
+    --text-color: #f1f1f1;
+    --text-secondary: #b8b8b8;
+    --card-bg: #222831;
+    --coming-soon-bg: #2d3748;
+    --font-main: 'Roboto', sans-serif;
+    --font-title: 'Bebas Neue', cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background-color: var(--secondary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--highlight-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+}
+
+.nav-menu {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    transition: left 0.3s ease;
+    list-style: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.8rem 0;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--highlight-color);
+}
+
+/* Hero Section */
+.hero {
+    padding: 3rem 0;
+    background: linear-gradient(to bottom right, var(--secondary-color), var(--primary-color));
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--highlight-color);
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: var(--highlight-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: #d43354;
+    transform: translateY(-2px);
+}
+
+.placeholder-image {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para imagens */
+.hero-img, .arc-img, .about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-image {
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.arc-image {
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-img {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes de layout com imagens */
+.arc-card {
+    padding-top: 0;
+    position: relative;
+}
+
+.arc-icon {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    background: var(--secondary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--highlight-color);
+    border: 3px solid var(--highlight-color);
+    z-index: 2;
+}
+
+.arc-title {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Efeitos hover nas imagens */
+.arc-img {
+    transition: transform 0.5s ease;
+}
+
+.arc-card:hover .arc-img {
+    transform: scale(1.05);
+}
+
+/* Seção de Arcos */
+.arcs-section {
+    padding: 3rem 0;
+    background-color: var(--primary-color);
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--highlight-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.arcs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.arc-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.arc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.arc-card.coming-soon {
+    background-color: var(--coming-soon-bg);
+    opacity: 0.9;
+}
+
+.arc-icon {
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+.arc-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.arc-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.arc-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin-bottom: 1rem;
+}
+
+.arc-details.active {
+    max-height: 500px;
+}
+
+.arc-details h4 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+}
+
+.arc-details ul {
+    padding-left: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.arc-details li {
+    margin-bottom: 0.3rem;
+}
+
+.coming-soon-message {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.coming-soon-message i {
+    font-size: 3rem;
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+.coming-soon-message h4 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+}
+
+
+.arc-toggle {
+    background-color: transparent;
+    color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.arc-toggle:hover:not(:disabled) {
+    background-color: var(--highlight-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(233, 69, 96, 0.3);
+}
+
+.arc-toggle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+}
+
+.arc-toggle:disabled i {
+    margin-right: 0.5rem;
+}
+
+/* Quando o card está expandido, a seta vira para cima */
+.arc-details.active + .arc-toggle i {
+    transform: rotate(180deg);
+}
+
+.arc-toggle i {
+    transition: transform 0.3s ease;
+}
+/* Seção Sobre */
+.about-section {
+    padding: 3rem 0;
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    text-align: justify;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--accent-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--highlight-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--highlight-color);
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleach: Guia dos Arcos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/sword.png">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-skull-crossbones"></i> Bleach
+            </h1>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#arcs" class="nav-link">Arcos</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Bleach: Guia Completo</h2>
+                <p class="hero-text">Reviva todos os arcos da emocionante história de Ichigo Kurosaki e seus amigos. Uma jornada pela proteção de Karakura e além.</p>
+                <a href="#arcs" class="btn-hero">Explorar Arcos</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero/banner.jpg" alt="banner-bleach" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Arcos -->
+    <main id="arcs" class="arcs-section">
+        <div class="container">
+            <h2 class="section-title">Arcos de Bleach</h2>
+            <p class="section-subtitle">Clique em cada arco para relembrar os principais acontecimentos</p>
+            
+            <div class="arcs-grid">
+
+                <!-- Arco 1 -->
+                <article class="arc-card" data-arc="substitute">
+                    <div class="arc-image">
+                        <img src="images/arcs/substitute.jpg" alt="arco1" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">Substituto de Shinigami</h3>
+                    <p class="arc-description">Ichigo conhece Rukia e se torna um Shinigami substituto para proteger sua cidade.</p>
+                    <div class="arc-details" id="substitute-details">
+                        <h4>Principais Eventos:</h4>
+                        <ul>
+                            <li>Encontro com Rukia Kuchiki</li>
+                            <li>Ichigo obtém poderes de Shinigami</li>
+                            <li>Proteção de Karakura contra Hollows</li>
+                            <li>Introdução aos personagens principais</li>
+                        </ul>
+                    </div>
+                    <button class="arc-toggle" aria-label="Mostrar detalhes">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </article>
+
+                <!-- Arco 2 -->
+                <article class="arc-card" data-arc="soul-society">
+                    <div class="arc-image">
+                        <img src="images/arcs/soul-society.jpg" alt="arco2" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">Soul Society</h3>
+                    <p class="arc-description">Ichigo e seus amigos invadem a Soul Society para resgatar Rukia da execução.</p>
+                    <div class="arc-details" id="soul-society-details">
+                        <h4>Principais Eventos:</h4>
+                        <ul>
+                            <li>Invasão da Soul Society</li>
+                            <li>Batalhas contra os capitães e tenentes</li>
+                            <li>Revelação sobre a história de Rukia</li>
+                            <li>Descoberta sobre os planos de Aizen</li>
+                        </ul>
+                    </div>
+                    <button class="arc-toggle" aria-label="Mostrar detalhes">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </article>
+
+                <!-- Arco 3 -->
+                <article class="arc-card" data-arc="vizards">
+                    <div class="arc-image">
+                        <img src="images/arcs/vizards.webp" alt="arco3" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">Vizards</h3>
+                    <p class="arc-description">Ichigo treina com os Vizards para controlar seu Hollow interior e enfrentar os Arrancars.</p>
+                    <div class="arc-details" id="vizards-details">
+                        <h4>Principais Eventos:</h4>
+                        <ul>
+                            <li>Ichigo descobre seu Hollow interior</li>
+                            <li>Treinamento com os Vizards</li>
+                            <li>Aparição dos Arrancars</li>
+                            <li>Batalha em Karakura</li>
+                        </ul>
+                    </div>
+                    <button class="arc-toggle" aria-label="Mostrar detalhes">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </article>
+
+                <!-- Arco 4 -->
+                <article class="arc-card" data-arc="arrancars">
+                    <div class="arc-image">
+                        <img src="images/arcs/arrancar.webp" alt="arco4" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">Arrancars</h3>
+                    <p class="arc-description">Confronto contra Aizen e seus exércitos de Arrancars em Hueco Mundo e Karakura.</p>
+                    <div class="arc-details" id="arrancars-details">
+                        <h4>Principais Eventos:</h4>
+                        <ul>
+                            <li>Invasão de Hueco Mundo</li>
+                            <li>Batalhas contra Espadas</li>
+                        </ul>
+                    </div>
+                    <button class="arc-toggle" aria-label="Mostrar detalhes">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </article>
+
+                <!-- Arco 5 -->
+                <article class="arc-card coming-soon" data-arc="fullbringers">
+                    <div class="arc-image">
+                        <img src="images/arcs/fullbringers.jpg" alt="arco5" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">Fullbringers</h3>
+                    <p class="arc-description">Mais informações em breve.</p>
+                    <div class="arc-details">
+                        <div class="coming-soon-message">
+                            <i class="fas fa-hourglass-half"></i>
+                            <h4>Em breve...</h4>
+                            <p>Detalhes sobre este arco estarão disponíveis em breve!</p>
+                        </div>
+                    </div>
+                    <button class="arc-toggle" disabled>Em breve</button>
+                </article>
+
+                <!-- Arco 6 -->
+                <article class="arc-card coming-soon" data-arc="tybw">
+                    <div class="arc-image">
+                        <img src="images/arcs/tybw.jpg" alt="arco6" class="arc-img">
+                    </div>
+                    <h3 class="arc-title">TYBW</h3>
+                    <p class="arc-description">Mais informações em breve.</p>
+                    <div class="arc-details">
+                        <div class="coming-soon-message">
+                            <i class="fas fa-hourglass-half"></i>
+                            <h4>Em breve...</h4>
+                            <p>Detalhes sobre este arco estarão disponíveis em breve!</p>
+                        </div>
+                    </div>
+                    <button class="arc-toggle" disabled>Em breve</button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Seção Sobre -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Sobre este Site</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Este site foi criado especialmente para a Lisa poder relembrar os acontecimentos e personagens da série.</p>
+                    <p>Cada seção contém informações sobre os principais eventos, personagens e batalhas que marcaram cada fase da história de Ichigo Kurosaki.</p>
+                    <p>Nós de Arrancars -></p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about/about.png" alt="Sobre o site" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-skull-crossbones"></i> Bleach Guide
+                </div>
+                <p class="footer-text">Site criado com ❤️ para Lisa</p>
+                <p class="footer-copyright">© 2026 Ruan Dias. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
