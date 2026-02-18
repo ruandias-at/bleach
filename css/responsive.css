@@ -60,6 +60,34 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .tabs-header {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .tab-button {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .tab-button:last-child {
+        border-bottom: none;
+    }
+    
+    .tab-button i {
+        width: 25px;
+    }
+    
+    .tabs-content {
+        padding: 1rem;
+    }
+    
+    .division-title {
+        font-size: 1.3rem;
+    }
+
     .group-title {
         font-size: 2rem;
     }

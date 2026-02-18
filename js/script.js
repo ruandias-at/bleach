@@ -127,3 +127,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Sistema de Abas para Personagens
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Remove active de todos os botões
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Remove active de todos os panes
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            // Adiciona active no botão clicado
+            this.classList.add('active');
+            
+            // Adiciona active no pane correspondente
+            const targetPane = document.getElementById(`tab-${tabId}`);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+});

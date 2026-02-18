@@ -493,6 +493,126 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Estilos para as Abas */
+.tabs-container {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.tabs-header {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--accent-color);
+    border-bottom: 2px solid var(--highlight-color);
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    flex: 1 1 auto;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.tab-button i {
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: var(--highlight-color);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.tab-button.active i {
+    color: var(--highlight-color);
+}
+
+.tabs-content {
+    padding: 2rem;
+    background: var(--secondary-color);
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Animação de fade */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para as abas */
+@media (max-width: 768px) {
+    .tabs-header {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.8rem 1rem;
+    }
+    
+    .tab-button i {
+        width: 25px;
+    }
+    
+    .tabs-content {
+        padding: 1rem;
+    }
+}
+
+/* Ajustes para os títulos das divisões dentro das abas */
+.division-subgroup {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.division-subgroup:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.division-title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--highlight-color);
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    border-left: 4px solid var(--highlight-color);
+}
 /* Estilos para as divisões da Soul Society */
 .division-subgroup {
     margin-bottom: 2.5rem;
