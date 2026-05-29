@@ -1,143 +1,192 @@
-/* Responsividade para tablets */
-@media (min-width: 768px) {
+/* ============================================
+   BLEACH GUIDE — responsive.css
+   ============================================ */
+
+/* ── Tablet (≥ 640px) ── */
+@media (min-width: 640px) {
     .container {
-        max-width: 720px;
-        padding: 0 1.5rem;
+        padding: 0 2rem;
     }
-    
-    .hero-title {
-        font-size: 3rem;
-    }
-    
+
     .arcs-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .section-title {
-        font-size: 2.5rem;
+
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .nav-toggle {
-        display: none;
+
+    .hero-img {
+        height: 380px;
     }
-    
+}
+
+/* ── Tablet landscape (≥ 768px) ── */
+@media (min-width: 768px) {
+    /* Nav: switch to horizontal */
+    .nav-toggle { display: none; }
+
     .nav-menu {
         position: static;
         display: flex;
-        gap: 1.5rem;
+        flex-direction: row;
+        gap: 0.25rem;
         padding: 0;
         background: transparent;
         box-shadow: none;
+        border: none;
+        left: auto;
+        width: auto;
+        top: auto;
     }
-    
+
     .nav-link {
+        padding: 0.4rem 0.85rem;
         border-bottom: none;
-        padding: 0.3rem 0;
-    }
-    
-    .about-content {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .about-text {
-        flex: 1;
-    }
-    
-    .about-image {
-        flex: 1;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
     }
 
-    .hero-image {
-        height: 400px;
-    }
-    
-    .arc-image {
-        height: 200px;
+    .nav-link::before { display: none; }
+
+    .nav-link:hover {
+        padding-left: 0.85rem;
+        background: rgba(232, 99, 10, 0.08);
     }
 
-    .characters-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .tabs-header {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .tab-button {
-        width: 100%;
-        justify-content: flex-start;
-        padding: 0.8rem 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .tab-button:last-child {
-        border-bottom: none;
-    }
-    
-    .tab-button i {
-        width: 25px;
-    }
-    
-    .tabs-content {
-        padding: 1rem;
-    }
-    
-    .division-title {
-        font-size: 1.3rem;
-    }
-
-    .group-title {
-        font-size: 2rem;
-    }
-    
-    .about-content {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .about-text, .about-image {
-        flex: 1;
-    }
-}
-
-/* Responsividade para desktops */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1200px;
-    }
-    
+    /* Hero */
     .hero .container {
         flex-direction: row;
         align-items: center;
-    }
-    
-    .hero-content {
-        flex: 1;
-    }
-    
-    .hero-image {
-        flex: 1;
-    }
-    
-    .arcs-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .hero-title {
-        font-size: 3.5rem;
+        gap: 4rem;
     }
 
-    .characters-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .hero-content { flex: 1; }
+
+    .hero-image {
+        flex: 1;
+        max-width: 460px;
+    }
+
+    .hero-img { height: 420px; }
+
+    /* Arcs */
+    .arcs-grid { gap: 1.75rem; }
+
+    /* About */
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .about-text { flex: 1; }
+    .about-image { flex: 1; }
+
+    /* Tabs — horizontal layout on tablet */
+    .tabs-header {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .tab-button {
+        min-width: 0;
+        flex: 1;
     }
 }
 
-/* Responsividade para telas maiores */
-@media (min-width: 1200px) {
-    .characters-grid {
-        grid-template-columns: repeat(4, 1fr);
+/* ── Desktop (≥ 1024px) ── */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 80vh;
+        padding: 5rem 0;
+    }
+
+    .hero-img { height: 460px; }
+
+    /* Arcs */
+    .arcs-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Characters */
+    .characters-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Tabs content */
+    .tabs-content { padding: 3rem 2.5rem; }
+
+    /* Sections */
+    .arcs-section,
+    .characters-section,
+    .about-section { padding: 6rem 0; }
+}
+
+/* ── Wide (≥ 1280px) ── */
+@media (min-width: 1280px) {
+    .characters-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .hero .container { gap: 6rem; }
+}
+
+/* ── Mobile-only overrides (< 640px) ── */
+@media (max-width: 639px) {
+    /* Tabs: stack vertically and make full-width */
+    .tabs-header {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.9rem 1.25rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        min-width: unset;
+    }
+
+    .tab-button::after {
+        top: 0; bottom: 0;
+        left: 0; right: auto;
+        width: 2px; height: auto;
+    }
+
+    .tab-button.active::after {
+        width: 2px;
+        right: auto; bottom: 0;
+    }
+
+    .tabs-content {
+        padding: 1.5rem 1rem;
+    }
+
+    /* Hero */
+    .hero { padding: 3rem 0; }
+
+    .hero::after { display: none; } /* hide kanji on small screens */
+
+    /* Section title smaller */
+    .section-title { font-size: 1.8rem; }
+
+    /* Arc/character cards */
+    .arc-card:hover { transform: none; } /* disable lift on touch */
+    .character-card:hover { transform: none; }
+
+    /* Division title */
+    .division-title { font-size: 0.72rem; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.15ms !important;
+    }
+
+    .reveal, .reveal-stagger > * {
+        opacity: 1;
+        transform: none;
     }
 }
