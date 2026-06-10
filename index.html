@@ -6,6 +6,8 @@
     <title>Bleach: Guia dos Arcos</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/zanpakuto.css">
+    <link rel="stylesheet" href="css/fillers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -27,6 +29,8 @@
                     <li><a href="#home" class="nav-link">Início</a></li>
                     <li><a href="#arcs" class="nav-link">Arcos</a></li>
                     <li><a href="#characters" class="nav-link">Personagens</a></li>
+                    <li><a href="#zanpakuto" class="nav-link">Zanpakutō</a></li>
+                    <li><a href="#fillers" class="nav-link">Fillers</a></li>
                     <li><a href="#about" class="nav-link">Sobre</a></li>
                 </ul>
             </nav>
@@ -2049,6 +2053,1139 @@
         </div>
     </div>
 </section>
+
+    <section id="zanpakuto" class="zanpakuto-section">
+        <div class="container">
+    
+            <h2 class="section-title">Zanpakutō &amp; Ressurreições</h2>
+            <p class="section-subtitle">Clique em um card para ver Shikai, Bankai e habilidades</p>
+    
+            <!-- Sub-abas -->
+            <div class="zp-tabs-header">
+                <button class="zp-tab-btn active" data-zptab="zanpakuto">
+                    <i class="fas fa-khanda"></i> Zanpakutō
+                </button>
+                <button class="zp-tab-btn" data-zptab="resurreccions">
+                    <i class="fas fa-skull"></i> Ressurreições
+                </button>
+            </div>
+    
+            <!-- PANE — ZANPAKUTŌ -->
+            <div class="zp-pane active" id="zp-zanpakuto">
+    
+                <!-- Filtros -->
+                <div class="zp-filter-bar">
+                    <button class="zp-filter-btn active" data-filter="all">Todos</button>
+                    <button class="zp-filter-btn" data-filter="shinigami">Shinigami</button>
+                    <button class="zp-filter-btn" data-filter="vizard">Vizard</button>
+                </div>
+    
+                <div class="zp-grid">
+    
+                    <!-- ─── Zangetsu ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/zangetsu.png" alt="Zangetsu" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder">
+                                <span class="zp-placeholder-kanji">斬</span>
+                            </div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Zangetsu</h4>
+                            <p class="zp-kanji">斬月 <span class="zp-meaning">· Lua Cortante</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Ichigo Kurosaki</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Getsuga Tenshō"</p>
+                                    <p class="zp-release-desc">Lança uma onda de energia espiritual em forma de crescente negro.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Tensa Zangetsu</p>
+                                    <p class="zp-release-desc">Comprime toda a energia em uma única lâmina negra. Velocidade e poder extremos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Sode no Shirayuki ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/sode-no-shirayuki.avif" alt="Sode no Shirayuki" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">雪</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Sode no Shirayuki</h4>
+                            <p class="zp-kanji">袖白雪 <span class="zp-meaning">· Neve Branca nas Mangas</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Rukia Kuchiki</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Dance, Sode no Shirayuki"</p>
+                                    <p class="zp-release-desc">Controle do gelo. Some no Mai, Tsugi no Mai e San no Mai.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Hakka no Togame</p>
+                                    <p class="zp-release-desc">Temperatura absoluta — tudo que toca congela instantaneamente, incluindo o ar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Senbonzakura ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/senbonzakura.webp" alt="Senbonzakura" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">桜</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Senbonzakura</h4>
+                            <p class="zp-kanji">千本桜 <span class="zp-meaning">· Mil Cerejeiras</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Byakuya Kuchiki</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Dispersar, Senbonzakura"</p>
+                                    <p class="zp-release-desc">A lâmina fragmenta-se em milhares de pétalas de aço microscópicas.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Senbonzakura Kageyoshi</p>
+                                    <p class="zp-release-desc">Mil espadas brotam do chão multiplicando as pétalas em escala colossal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Zabimaru ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/zabimaru.webp" alt="Zabimaru" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">蛇</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Zabimaru</h4>
+                            <p class="zp-kanji">蛇尾丸 <span class="zp-meaning">· Cauda de Serpente</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Renji Abarai</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Ruja, Zabimaru"</p>
+                                    <p class="zp-release-desc">A lâmina segmenta-se em ossos dentados conectados, extensível como chicote.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Hihiō Zabimaru</p>
+                                    <p class="zp-release-desc">Uma serpente esquelética gigante de ossos e chamas envolve o portador.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Hyōrinmaru ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/hyorinmaru.webp" alt="Hyōrinmaru" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">氷</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Hyōrinmaru</h4>
+                            <p class="zp-kanji">氷輪丸 <span class="zp-meaning">· Disco de Gelo</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Tōshirō Hitsugaya</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Cresca sobre os céus congelados, Hyōrinmaru"</p>
+                                    <p class="zp-release-desc">Controle absoluto da água e gelo. Forma um dragão de gelo ao redor da lâmina.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Daiguren Hyōrinmaru</p>
+                                    <p class="zp-release-desc">Asas e cauda de gelo cristalino. Congela toda a área ao redor do portador.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Ryūjin Jakka ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/ryujin-jakka.webp" alt="Ryūjin Jakka" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">炎</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Ryūjin Jakka</h4>
+                            <p class="zp-kanji">流刃若火 <span class="zp-meaning">· Chama Jovem da Lâmina Corrente</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Yamamoto Genryūsai</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Torne tudo cinzas, Ryūjin Jakka"</p>
+                                    <p class="zp-release-desc">A Zanpakutō de fogo mais poderosa. Incendeia tudo ao redor, criando o Ennetsu Jigoku.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Zanka no Tachi</p>
+                                    <p class="zp-release-desc">Todo o fogo do mundo comprimido na lâmina. Quatro formas: Higashi, Nishi, Minami e Kita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Kyōka Suigetsu ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/kyoka-suigetsu.avif" alt="Kyōka Suigetsu" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">月</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Kyōka Suigetsu</h4>
+                            <p class="zp-kanji">鏡花水月 <span class="zp-meaning">· Flor no Espelho, Lua na Água</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Sōsuke Aizen</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Kudakero, Kyōka Suigetsu"</p>
+                                    <p class="zp-release-desc">Hipnose perfeita e completa — controla todos os cinco sentidos de quem viu a liberação.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelada???</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Shinso ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/shinso.webp" alt="Shinso" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">神</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Shinso</h4>
+                            <p class="zp-kanji">神鎗 <span class="zp-meaning">· Lança Divina</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Gin Ichimaru</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Atire e mate, Shinso"</p>
+                                    <p class="zp-release-desc">A lâmina se estende a velocidade extrema — 500 vezes seu comprimento original.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Kamishini no Yari</p>
+                                    <p class="zp-release-desc">Extensão de 13km à velocidade da luz. Contém veneno que desintegra a reiatsu.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Suzumebachi ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/suzumebachi.webp" alt="Suzumebachi" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">蜂</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Suzumebachi</h4>
+                            <p class="zp-kanji">雀蜂 <span class="zp-meaning">· Vespa</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Soi Fon</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Ferroe, Suzumebachi"</p>
+                                    <p class="zp-release-desc">Soco-inglês com ferrão. Dois golpes no mesmo ponto causam morte instantânea.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Jakuhō Raikōben</p>
+                                    <p class="zp-release-desc">Armadura de vespa no braço que dispara um míssil explosivo de alta potência.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Katen Kyōkotsu ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/katen-kyokotsu.webp" alt="Katen Kyōkotsu" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">花</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Katen Kyōkotsu</h4>
+                            <p class="zp-kanji">花天狂骨 <span class="zp-meaning">· Ossos Loucos do Céu Florido</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Shunsui Kyōraku</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Fúria do Vento das Flores e Rugido do Deus das Flores, Fúria do Vento Celestial e Zombaria do Demônio Celestial"</p>
+                                    <p class="zp-release-desc">Dois sabres. Cria "jogos" cujas regras afetam a realidade do combate.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Katen Kyōkotsu: Karamatsu Shinjū</p>
+                                    <p class="zp-release-desc">Zona de escuridão onde o sofrimento do portador se transfere ao inimigo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Minazuki ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/minazuki.jpg" alt="Minazuki" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">癒</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Minazuki</h4>
+                            <p class="zp-kanji">肉雫唼 <span class="zp-meaning">· Que Engole a Carne</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Retsu Unohana</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Minazuki"</p>
+                                    <p class="zp-release-desc">Manta-raia gigante que cura os feridos dentro de seu corpo.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Minazuki</p>
+                                    <p class="zp-release-desc">Chão coberto de sangue curativo. A portadora fica mais forte quanto mais dano sofre.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Sōgyo no Kotowari ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/sogyo-no-kotowari.webp" alt="Sōgyo no Kotowari" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">双</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Sōgyo no Kotowari</h4>
+                            <p class="zp-kanji">双魚理 <span class="zp-meaning">· Lei dos Dois Peixes</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Jūshirō Ukitake</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Nadegiri, Sōgyo no Kotowari"</p>
+                                    <p class="zp-release-desc">Dois sabres ligados por cordas vermelhas. Absorve ataques e os redireciona.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelada.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Nozarashi ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/nozarashi.webp" alt="Nozarashi" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">鬼</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Nozarashi</h4>
+                            <p class="zp-kanji">野晒 <span class="zp-meaning">· Deixado ao Relento</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Kenpachi Zaraki</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Corte, Nozarashi"</p>
+                                    <p class="zp-release-desc">Enorme cutelo que corta qualquer coisa com reiatsu puro e bruto.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Beba, Nozarashi</p>
+                                    <p class="zp-release-desc">Forma demoníaca com poder destrutivo imenso. A mais BRUTA de todas as Bankais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Tenken ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/tenken.avif" alt="Tenken" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">天</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Tenken</h4>
+                            <p class="zp-kanji">天譴 <span class="zp-meaning">· Punição Divina</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Sajin Komamura</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Ruja, Tenken"</p>
+                                    <p class="zp-release-desc">Manifesta partes de um guerreiro espectral que espelha os movimentos do portador.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Kokujō Tengen Myō'ō</p>
+                                    <p class="zp-release-desc">Um samurai espectral gigante completo que espelha cada movimento do portador.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Ashisogi Jizō ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/ashisogi-jizo.webp" alt="Ashisogi Jizō" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">毒</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Ashisogi Jizō</h4>
+                            <p class="zp-kanji">疋殺地蔵 <span class="zp-meaning">· Assassino de Aberrações</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Mayuri Kurotsuchi</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Rasgue, Ashisogi Jizō"</p>
+                                    <p class="zp-release-desc">Lâmina com cabeça de bebê que paralisa o sistema nervoso motor dos atingidos.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Konjiki Ashisogi Jizō</p>
+                                    <p class="zp-release-desc">Larva gigante que vomita veneno personalizado para o DNA específico do inimigo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Suzumushi ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/suzumushi.webp" alt="Suzumushi" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">虫</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Suzumushi</h4>
+                            <p class="zp-kanji">清虫 <span class="zp-meaning">· Grilo Puro</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Kaname Tōsen</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Suzumushi"</p>
+                                    <p class="zp-release-desc">Som que apaga a consciência de todos que o ouvem (exceto o portador).</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Suzumushi Nishiki: Benihikō</p>
+                                    <p class="zp-release-desc">Esfera de escuridão absoluta que remove todos os sentidos exceto o tato.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Kazeshini ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/kazeshini.jpg" alt="Kazeshini" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">風</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Kazeshini</h4>
+                            <p class="zp-kanji">風死 <span class="zp-meaning">· Morte do Vento</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Shūhei Hisagi</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Ceife, Kazeshini"</p>
+                                    <p class="zp-release-desc">Duas foices ligadas por correntes que giram criando vento cortante.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Haineko ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/haineko.webp" alt="Haineko" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">灰</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Haineko</h4>
+                            <p class="zp-kanji">灰猫 <span class="zp-meaning">· Gata Cinzenta</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Rangiku Matsumoto</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Ruja, Haineko"</p>
+                                    <p class="zp-release-desc">A lâmina dissolve-se em cinzas que cortam ao comando da portadora.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Tobiume ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/tobiume.jpg" alt="Tobiume" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">梅</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Tobiume</h4>
+                            <p class="zp-kanji">飛梅 <span class="zp-meaning">· Ameixa Voadora</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Momo Hinamori</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Estoure, Tobiume"</p>
+                                    <p class="zp-release-desc">Lâmina com nós que dispara esferas de energia espiritual em sequência rápida.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Wabisuke ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/wabisuke.webp" alt="Wabisuke" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">重</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Wabisuke</h4>
+                            <p class="zp-kanji">侘助 <span class="zp-meaning">· O Miserável</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Izuru Kira</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Levante a cabeça, Wabisuke"</p>
+                                    <p class="zp-release-desc">Gancho quadrado que dobra o peso de tudo que toca a cada golpe consecutivo.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Benihime ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/benihime.webp" alt="Benihime" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">紅</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Benihime</h4>
+                            <p class="zp-kanji">紅姫 <span class="zp-meaning">· Princesa Escarlate</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Kisuke Urahara</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Acorde, Benihime"</p>
+                                    <p class="zp-release-desc">Projéteis e barreiras de energia vermelha. Extremamente versátil em ataque e defesa.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Kannonbiraki Benihime Aratame</p>
+                                    <p class="zp-release-desc">Entidade feminina que reestrutura qualquer coisa que toca — corpos, objetos, espaço.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Engetsu ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/engetsu.webp" alt="Engetsu" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">月</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Engetsu</h4>
+                            <p class="zp-kanji">焔月 <span class="zp-meaning">· Lua em Chamas</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Isshin Kurosaki</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Queime, Engetsu"</p>
+                                    <p class="zp-release-desc">Controle de chamas. Técnica Getsuga Tenshō de fogo, similar à de Ichigo.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Gonryōmaru ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/gonryomaru.avif" alt="Gonryōmaru" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">霊</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Gonryōmaru</h4>
+                            <p class="zp-kanji">厳霊丸 <span class="zp-meaning">· Espírito Rigoroso</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Chōjirō Sasakibe</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Estoque, Gonryōmaru"</p>
+                                    <p class="zp-release-desc">Estoque (florete) de precisão cirúrgica que perfura com velocidade extrema.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Kōkō Gonryō Rikyū</p>
+                                    <p class="zp-release-desc">Nuvem de trovão dourado que descarrega raios de alta potência ao redor.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Hōzukimaru ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/hozukimaru.webp" alt="Hōzukimaru" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">鬼</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Hōzukimaru</h4>
+                            <p class="zp-kanji">鬼灯丸 <span class="zp-meaning">· Círculo de Lampião</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Ikkaku Madarame</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Cresça, Hōzukimaru"</p>
+                                    <p class="zp-release-desc">Lança longa que se separa em três seções dentadas unidas por correntes.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Ryūmon Hōzukimaru</p>
+                                    <p class="zp-release-desc">Três enormes lâminas com dragão gravado. Aumenta de poder com o tempo de combate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Ruri'iro Kujaku ─── -->
+                    <article class="zp-card" data-type="shinigami">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/ruriiro-kujaku.jpg" alt="Ruri'iro Kujaku" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">孔</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Ruri'iro Kujaku</h4>
+                            <p class="zp-kanji">瑠璃色孔雀 <span class="zp-meaning">· Pavão Azul Lapislázuli</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Yumichika Ayasegawa</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Drene, Ruri'iro Kujaku"</p>
+                                    <p class="zp-release-desc">Vinhas que enraízam no corpo do inimigo e drenam sua reiatsu para o portador.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Sakanade (Vizard) ─── -->
+                    <article class="zp-card" data-type="vizard">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/sakanade.jpg" alt="Sakanade" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">逆</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Sakanade</h4>
+                            <p class="zp-kanji">逆撫 <span class="zp-meaning">· Contragolpe</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Shinji Hirako</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Desmorone, Sakanade"</p>
+                                    <p class="zp-release-desc">Inverte todos os sentidos do inimigo — frente/trás, esquerda/direita, cima/baixo.</p>
+                                </div>
+                                <div class="zp-release zp-release--none">
+                                    <span class="zp-label zp-label--none">Bankai</span>
+                                    <p class="zp-release-desc">Não revelado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Kinshara (Vizard) ─── -->
+                    <article class="zp-card" data-type="vizard">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/kinshara.webp" alt="Kinshara" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">金</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Kinshara</h4>
+                            <p class="zp-kanji">金沙羅 <span class="zp-meaning">· Vara de Ouro</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Rōjūrō Ōtoribashi (Rose)</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Kinshara"</p>
+                                    <p class="zp-release-desc">Corda-chicote dourada controlada por composições musicais do portador.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Kinshara Sōkōkui</p>
+                                    <p class="zp-release-desc">Orquestra espiritual cujos sons causam destruição física no inimigo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Tachikaze (Vizard) ─── -->
+                    <article class="zp-card" data-type="vizard">
+                        <div class="zp-image-wrap">
+                            <img src="images/zanpakuto/tachikaze.webp" alt="Tachikaze" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">断</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Tachikaze</h4>
+                            <p class="zp-kanji">断風 <span class="zp-meaning">· Vento Cortante</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Kensei Muguruma</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--shikai">Shikai</span>
+                                    <p class="zp-release-cmd">"Tachikaze"</p>
+                                    <p class="zp-release-desc">Faca pequena que dispara explosões de vento cortante concentrado.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--bankai">Bankai</span>
+                                    <p class="zp-release-cmd">Tekken Tachikaze</p>
+                                    <p class="zp-release-desc">Knuckle-dusters nos braços que disparam explosões massivas de vento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                </div><!-- /zp-grid -->
+            </div><!-- /zp-pane zanpakuto -->
+    
+    
+            <!-- PANE — RESSURREIÇÕES -->
+            <div class="zp-pane" id="zp-resurreccions">
+    
+                <div class="zp-grid">
+    
+                    <!-- ─── Los Lobos ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/los-lobos.webp" alt="Los Lobos" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">狼</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Los Lobos</h4>
+                            <p class="zp-kanji">群狼 <span class="zp-meaning">· Os Lobos</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Coyote Starrk — 1ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Los Lobos"</p>
+                                    <p class="zp-release-desc">Starrk e Lilynette se fundem. Pistolas que disparam Ceros; Lilynette vira alcateia de lobos de reiatsu que explodem no alvo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Arrogante ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/arrogante.webp" alt="Arrogante" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">王</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Arrogante</h4>
+                            <p class="zp-kanji">傲慢王 <span class="zp-meaning">· O Arrogante</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Baraggan Louisenbairn — 2ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Arrogante"</p>
+                                    <p class="zp-release-desc">Esqueleto com manto negro. Senescencia — campo de envelhecimento que decompõe tudo, inclusive Kidō e Bankai.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Tiburón ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/tiburon.webp" alt="Tiburón" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">鮫</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Tiburón</h4>
+                            <p class="zp-kanji">皇鮫后 <span class="zp-meaning">· A Imperatriz Tubarão</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Tier Harribel — 3ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Tiburón"</p>
+                                    <p class="zp-release-desc">Envolta em água que se manipula como lâminas. Cascada, La Gota, Hirviendo e Trident.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Murciélago ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/murcielago.webp" alt="Murciélago" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">魔</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Murciélago</h4>
+                            <p class="zp-kanji">黒翼大魔 <span class="zp-meaning">· Grande Demônio de Asas Negras</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Ulquiorra Cifer — 4ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Murciélago"</p>
+                                    <p class="zp-release-desc">Asas de morcego negras. Lanza del Relámpago — lanças de reiatsu com explosão massiva.</p>
+                                </div>
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion2">2ª Etapa</span>
+                                    <p class="zp-release-cmd">Segunda Etapa — única entre as Espadas</p>
+                                    <p class="zp-release-desc">Corpo demoníaco com asas enormes e chifres. Cero Oscuras que cancela qualquer Getsuga Tenshō.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Santa Teresa ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/santa-teresa.webp" alt="Santa Teresa" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">螳</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Santa Teresa</h4>
+                            <p class="zp-kanji">神喰螳螂 <span class="zp-meaning">· Louva-a-Deus Divino</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Nnoitra Gilga — 5ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Santa Teresa"</p>
+                                    <p class="zp-release-desc">Quatro braços extras surgem — seis falcatas simultâneas. Hierro quase impenetrável.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Pantera ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/pantera.webp" alt="Pantera" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">豹</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Pantera</h4>
+                            <p class="zp-kanji">豹王 <span class="zp-meaning">· Rei Pantera</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Grimmjow Jaegerjaquez — 6ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Pantera"</p>
+                                    <p class="zp-release-desc">Corpo de pantera, velocidade extrema. Clones — Garra de la Pantera. Técnica final Desgarrón.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Brujería ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/brujeria.webp" alt="Brujería" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">術</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Brujería</h4>
+                            <p class="zp-kanji">術聖 <span class="zp-meaning">· Feitiçaria</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Zommari Rureaux — 7ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Brujería"</p>
+                                    <p class="zp-release-desc">50 olhos no corpo que controlam tudo que enxergam — membros do inimigo, objetos e aliados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Fornicarás ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/fornicaras.webp" alt="Fornicarás" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">姦</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Fornicarás</h4>
+                            <p class="zp-kanji">姦淫神 <span class="zp-meaning">· Deus do Adultério</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Szayelaporro Granz — 8ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Fornicarás"</p>
+                                    <p class="zp-release-desc">Tentáculos que capturam e clonam o inimigo criando bonecas-vudú. Pode se reproduzir devorando aliados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Glotonería ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/glotaneria.webp" alt="Glotonería" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">喰</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Glotonería</h4>
+                            <p class="zp-kanji">喰虚 <span class="zp-meaning">· Hollow Devorador</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Aaroniero Arruruerie — 9ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Glotonería"</p>
+                                    <p class="zp-release-desc">Monstro amorfo que absorve Hollows e usa os poderes de todos que consumiu, incluindo Kaien Shiba.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Ira ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/ira.webp" alt="Ira" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">怒</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Ira</h4>
+                            <p class="zp-kanji">激怒 <span class="zp-meaning">· Raiva</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Yammy Llargo — 10ª / 0ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Ira"</p>
+                                    <p class="zp-release-desc">Tamanho colossal. Quanto mais raiva acumula, maior e mais forte fica — tornando-se a Cero Espada (#0).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- ─── Gamuza ─── -->
+                    <article class="zp-card" data-type="espada">
+                        <div class="zp-image-wrap">
+                            <img src="images/resurreccions/gamuza.webp" alt="Gamuza" class="zp-img" onerror="this.parentElement.classList.add('zp-no-img')">
+                            <div class="zp-img-placeholder"><span class="zp-placeholder-kanji">姫</span></div>
+                        </div>
+                        <div class="zp-body">
+                            <h4 class="zp-name">Gamuza</h4>
+                            <p class="zp-kanji">戦姫 <span class="zp-meaning">· Princesa Guerreira</span></p>
+                            <p class="zp-owner"><i class="fas fa-user"></i> Nelliel Tu Odelschwanck — Ex 3ª Espada</p>
+                            <div class="zp-details">
+                                <div class="zp-release">
+                                    <span class="zp-label zp-label--resurreccion">Resurrección</span>
+                                    <p class="zp-release-cmd">"Gamuza"</p>
+                                    <p class="zp-release-desc">Corpo de centauro com lança. Lanzador Verde — Cero em forma de lança que perfura qualquer defesa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+    
+                </div><!-- /zp-grid ressurreições -->
+            </div><!-- /zp-pane resurreccions -->
+    
+        </div><!-- /container -->
+    </section>
+
+    <section id="fillers" class="fillers-section">
+        <div class="container">
+    
+            <h2 class="section-title">Arcos Fillers</h2>
+            <p class="section-subtitle">Histórias originais do anime — fora do cânone do mangá</p>
+    
+            <div class="fillers-content">
+    
+                <!-- Badge de aviso -->
+                <div class="filler-notice">
+                    <i class="fas fa-circle-info"></i>
+                    <p>Os arcos abaixo são <strong>exclusivos do anime</strong> e não fazem parte da história original de Tite Kubo. São opcionais, mas apresentam personagens e poderes únicos.</p>
+                </div>
+    
+                <!-- Timeline de fillers (reutiliza as classes .arc-row da seção principal) -->
+                <div class="arcs-timeline fillers-timeline">
+    
+                    <!-- ── Filler 1: Bount ── -->
+                    <div class="arc-row" data-arc="bount">
+                        <div class="arc-node">
+                            <div class="arc-node-number">01</div>
+                            <div class="arc-node-line"></div>
+                        </div>
+                        <div class="arc-card">
+                            <div class="arc-card-header">
+                                <div class="arc-thumb">
+                                    <img src="images/arcs/fillers/bount.webp" alt="Arco Bount" class="arc-thumb-img">
+                                </div>
+                                <div class="arc-header-text">
+                                    <h3 class="arc-title">Arco Bount</h3>
+                                    <p class="arc-description">Ichigo enfrenta os Bounts — humanos imortais que se alimentam de almas — liderados pelo enigmático Jin Kariya.</p>
+                                </div>
+                                <i class="fas fa-chevron-down arc-chevron"></i>
+                            </div>
+                            <div class="arc-panel">
+                                <div class="arc-panel-inner">
+                                    <div class="arc-panel-image">
+                                        <img src="images/arcs/fillers/bount2.webp" alt="Arco Bount" class="arc-panel-img">
+                                    </div>
+                                    <div class="arc-events">
+                                        <p class="arc-events-label">Episódios 64 – 108</p>
+                                        <ul>
+                                            <li>Ichigo conhece os Bounts, humanos imortais criados por experimentos na Soul Society</li>
+                                            <li>Aparição de Ririn, Kurōdo e Noba — Mod-Souls criados para detectar Bounts</li>
+                                            <li>Jin Kariya lidera os Bounts com o objetivo de invadir a Soul Society</li>
+                                            <li>Cada Bount possui uma Doll — espírito-arma similar à Zanpakutō</li>
+                                            <li>Batalhas intensas dentro de Soul Society contra os capitães e os Bounts</li>
+                                            <li>Derrota de Kariya por Ichigo em confronto final</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- ── Filler 2: O Novo Capitão Amagai Shūsuke ── -->
+                    <div class="arc-row" data-arc="amagai-filler">
+                        <div class="arc-node">
+                            <div class="arc-node-number">02</div>
+                            <div class="arc-node-line"></div>
+                        </div>
+                        <div class="arc-card">
+                            <div class="arc-card-header">
+                                <div class="arc-thumb">
+                                    <img src="images/arcs/fillers/amagai-filler.webp" alt="Arco Amagai Shūsuke" class="arc-thumb-img">
+                                </div>
+                                <div class="arc-header-text">
+                                    <h3 class="arc-title">O Novo Capitão Amagai Shūsuke</h3>
+                                    <p class="arc-description">Episódios de transição entre a invasão de Hueco Mundo e a batalha em Karakura, com histórias paralelas dos personagens.</p>
+                                </div>
+                                <i class="fas fa-chevron-down arc-chevron"></i>
+                            </div>
+                            <div class="arc-panel">
+                                <div class="arc-panel-inner">
+                                    <div class="arc-panel-image">
+                                        <img src="images/arcs/fillers/amagai-filler2.webp" alt="Amagai Shūsuke" class="arc-panel-img">
+                                    </div>
+                                    <div class="arc-events">
+                                        <p class="arc-events-label">Episódios 168 – 189</p>
+                                        <ul>
+                                            <li>Amagai foi nomeado capitão após passar um longo período em missões externas</li>
+                                            <li>Possui um conflito ideológico com os métodos tradicionais dos Shinigamis</li>
+                                            <li>A trama foca no conflito político com o clã Kasumiōji</li>
+                                            <li>Envolvendo a criação de armas perigosas e forçando Ichigo Kurosaki a intervir e proteger uma herdeira em fuga.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- ── Filler 3: Zanpakutō: A Rebelião ── -->
+                    <div class="arc-row" data-arc="zanpakuto-rebellion">
+                        <div class="arc-node">
+                            <div class="arc-node-number">03</div>
+                            <div class="arc-node-line"></div>
+                        </div>
+                        <div class="arc-card">
+                            <div class="arc-card-header">
+                                <div class="arc-thumb">
+                                    <img src="images/arcs/fillers/zanpakuto-rebellion.jpg" alt="Zanpakutō: A Rebelião" class="arc-thumb-img">
+                                </div>
+                                <div class="arc-header-text">
+                                    <h3 class="arc-title">O Conto da Zanpakutō Desconhecida</h3>
+                                    <p class="arc-description">Os espíritos das Zanpakutō ganham forma física e se rebelam contra seus portadores, liderados pelo misterioso Muramasa.</p>
+                                </div>
+                                <i class="fas fa-chevron-down arc-chevron"></i>
+                            </div>
+                            <div class="arc-panel">
+                                <div class="arc-panel-inner">
+                                    <div class="arc-panel-image">
+                                        <img src="images/arcs/fillers/zanpakuto-rebellion2.webp" alt="Zanpakutō: A Rebelião" class="arc-panel-img">
+                                    </div>
+                                    <div class="arc-events">
+                                        <p class="arc-events-label">Episódios 230 – 265</p>
+                                        <ul>
+                                            <li>Muramasa liberta os espíritos das Zanpakutō de seus portadores Shinigami</li>
+                                            <li>Os espíritos assumem formas físicas — incluindo Senbonzakura, Zabimaru e Hyōrinmaru</li>
+                                            <li>Zangetsu e Hollow Ichigo aparecem como personagens independentes</li>
+                                            <li>Os Shinigamis lutam para recuperar o vínculo com suas espadas</li>
+                                            <li>Revelação do passado trágico de Muramasa e sua ligação com Kōga Kuchiki</li>
+                                            <li>Derrota de Muramasa e restauração das Zanpakutō</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- ── Filler 4: Gotei 13 Invasão! ── -->
+                    <div class="arc-row" data-arc="gotei-invasion">
+                        <div class="arc-node">
+                            <div class="arc-node-number">04</div>
+                            <div class="arc-node-line"></div>
+                        </div>
+                        <div class="arc-card">
+                            <div class="arc-card-header">
+                                <div class="arc-thumb">
+                                    <img src="images/arcs/fillers/gotei-invasion.webp" alt="Gotei 13 Invasão!" class="arc-thumb-img">
+                                </div>
+                                <div class="arc-header-text">
+                                    <h3 class="arc-title">O Exército de Invasão das 13 Divisões!</h3>
+                                    <p class="arc-description">Os capitães e tenentes são substituídos por cópias jovens criadas por Kagerōza Inaba, que rouba o Nozomi Kujō para completar seu plano.</p>
+                                </div>
+                                <i class="fas fa-chevron-down arc-chevron"></i>
+                            </div>
+                            <div class="arc-panel">
+                                <div class="arc-panel-inner">
+                                    <div class="arc-panel-image">
+                                        <img src="images/arcs/fillers/gotei-invasion2.webp" alt="Gotei 13 Invasão!" class="arc-panel-img">
+                                    </div>
+                                    <div class="arc-events">
+                                        <p class="arc-events-label">Episódios 317 – 342</p>
+                                        <ul>
+                                            <li>Aparição de Nozomi Kujō — um Mod-Soul especial fugindo de perseguidores</li>
+                                            <li>Kagerōza Inaba cria Reigai — cópias dos capitães e tenentes com poderes amplificados</li>
+                                            <li>Os Reigai tomam controle da Soul Society, expulsando os Shinigamis reais</li>
+                                            <li>Ichigo e seus amigos protegem Nozomi enquanto combatem os Reigai</li>
+                                            <li>Revelação: Nozomi e Inaba são fragmentos de uma mesma alma original</li>
+                                            <li>Sacrifício de Nozomi para destruir Inaba e restaurar a Soul Society</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div><!-- /arcs-timeline fillers-timeline -->
+            </div><!-- /fillers-content -->
+        </div><!-- /container -->
+    </section>
 
     <!-- Seção Sobre -->
     <section id="about" class="about-section">

@@ -35,7 +35,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-/* ── Arc accordion ── */
+/* ── Arc accordion (botão legado) ── */
 document.querySelectorAll('.arc-toggle:not(:disabled)').forEach(btn => {
     btn.addEventListener('click', () => {
         const card    = btn.closest('.arc-card');
@@ -45,11 +45,25 @@ document.querySelectorAll('.arc-toggle:not(:disabled)').forEach(btn => {
         const isOpen = details.classList.toggle('active');
         btn.setAttribute('aria-expanded', isOpen);
 
-        // Rotate chevron
         const icon = btn.querySelector('i');
-        if (icon) {
-            icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+});
+
+/* ── Arc / Filler timeline rows — clique na linha inteira ── */
+document.querySelectorAll('.arc-row:not(.coming-soon)').forEach(row => {
+    row.addEventListener('click', () => {
+        const isOpen = row.classList.contains('arc-open');
+
+        // Fecha todos os outros na mesma timeline
+        const timeline = row.closest('.arcs-timeline');
+        if (timeline) {
+            timeline.querySelectorAll('.arc-row.arc-open').forEach(other => {
+                if (other !== row) other.classList.remove('arc-open');
+            });
         }
+
+        row.classList.toggle('arc-open', !isOpen);
     });
 });
 
@@ -145,9 +159,69 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+/* ══════════════════════════════════════════
+   ZANPAKUTŌ SECTION
+══════════════════════════════════════════ */
+function initZanpakutoSection() {
+
+    /* ── Sub-abas (Zanpakutō | Ressurreições) ── */
+    document.querySelectorAll('.zp-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.zptab;
+
+            document.querySelectorAll('.zp-tab-btn').forEach(b =>
+                b.classList.toggle('active', b === btn)
+            );
+            document.querySelectorAll('.zp-pane').forEach(pane =>
+                pane.classList.toggle('active', pane.id === `zp-${target}`)
+            );
+        });
+    });
+
+    /* ── Filtros por tipo ── */
+    document.querySelectorAll('.zp-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pane = btn.closest('.zp-pane');
+            if (!pane) return;
+
+            // Toggle active button
+            pane.querySelectorAll('.zp-filter-btn').forEach(b =>
+                b.classList.toggle('active', b === btn)
+            );
+
+            const filter = btn.dataset.filter;
+
+            pane.querySelectorAll('.zp-card').forEach(card => {
+                const match = filter === 'all' || card.dataset.type === filter;
+                card.classList.toggle('zp-hidden', !match);
+                // Close expanded card if it's being hidden
+                if (!match) card.classList.remove('expanded');
+            });
+        });
+    });
+
+    /* ── Cards clicáveis (expand/collapse) ── */
+    document.querySelectorAll('.zp-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const isOpen = !card.classList.contains('expanded');
+
+            // Fecha os outros cards da mesma grade
+            const grid = card.closest('.zp-grid');
+            if (grid) {
+                grid.querySelectorAll('.zp-card').forEach(other => {
+                    if (other !== card) other.classList.remove('expanded');
+                });
+            }
+
+            card.classList.toggle('expanded', isOpen);
+        });
+    });
+}
+
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
     initReveal();
+    initZanpakutoSection();
 
     // Make initial tab's stagger grids visible immediately
     document.querySelectorAll('.tab-pane.active .reveal-stagger').forEach(el => {

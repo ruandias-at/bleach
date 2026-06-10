@@ -1,0 +1,411 @@
+/* ============================================
+   BLEACH GUIDE — zanpakuto.css
+   Seção independente de Zanpakutō
+   ============================================ */
+
+/* ══════════════════════════════════════════
+   ZANPAKUTŌ SECTION WRAPPER
+══════════════════════════════════════════ */
+.zanpakuto-section {
+    padding: 5rem 0 6rem;
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+}
+
+.zanpakuto-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange-dim), transparent);
+}
+
+/* Kanji watermark */
+.zanpakuto-section::after {
+    content: '斬';
+    position: absolute;
+    right: -2%; top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(14rem, 28vw, 26rem);
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: rgba(255,255,255,0.013);
+    pointer-events: none;
+    line-height: 1;
+    z-index: 0;
+}
+
+/* ── Sub-tabs (Zanpakutō | Ressurreições) ── */
+.zp-tabs-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.zp-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--mist);
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: -1px;
+}
+
+.zp-tab-btn i { font-size: 0.9rem; }
+
+.zp-tab-btn:hover { color: var(--pale); }
+
+.zp-tab-btn.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+/* Sub-pane */
+.zp-pane { display: none; }
+.zp-pane.active {
+    display: block;
+    animation: fadeInUp 0.4s ease both;
+}
+
+/* ── Category filter bar ── */
+.zp-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.zp-filter-btn {
+    background: transparent;
+    border: 1px solid var(--smoke);
+    color: var(--mist);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.zp-filter-btn:hover {
+    border-color: var(--orange);
+    color: var(--pale);
+}
+
+.zp-filter-btn.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+    font-weight: 700;
+}
+
+/* ── Grid ── */
+.zp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Hidden by filter ── */
+.zp-card.zp-hidden {
+    display: none;
+}
+
+/* ══════════════════════════════════════════
+   ZP CARD
+══════════════════════════════════════════ */
+.zp-card {
+    background: var(--ink);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition:
+        border-color var(--transition),
+        box-shadow   var(--transition),
+        transform    var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.zp-card:hover {
+    border-color: rgba(232, 99, 10, 0.28);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5),
+                0 0 16px rgba(232,99,10,0.07);
+    transform: translateY(-4px);
+}
+
+.zp-card.expanded {
+    border-color: rgba(232, 99, 10, 0.45);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6),
+                0 0 20px rgba(232,99,10,0.13);
+}
+
+/* Type accent bar on top */
+.zp-card[data-type="shinigami"] { --zp-accent: var(--orange-dim); }
+.zp-card[data-type="vizard"]    { --zp-accent: #5b2d9e; }
+.zp-card[data-type="espada"]    { --zp-accent: #8b0000; }
+
+.zp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--zp-accent, var(--orange-dim));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.zp-card:hover::before,
+.zp-card.expanded::before { opacity: 1; }
+
+/* ── Image ── */
+.zp-image-wrap {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background: var(--ash);
+    flex-shrink: 0;
+}
+
+.zp-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--ink) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.zp-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.55s ease;
+}
+
+.zp-card:hover .zp-img    { transform: scale(1.07); }
+.zp-card.expanded .zp-img { transform: scale(1.04); }
+
+/* Placeholder when image missing */
+.zp-image-wrap.zp-no-img .zp-img { display: none; }
+
+.zp-img-placeholder {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 0;
+}
+
+.zp-img-placeholder .zp-placeholder-kanji {
+    font-size: 3rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+}
+
+.zp-img-placeholder i {
+    font-size: 1.8rem;
+    color: rgba(255,255,255,0.05);
+}
+
+.zp-image-wrap.zp-no-img .zp-img-placeholder { display: flex; }
+
+/* ── Body ── */
+.zp-body {
+    padding: 0.85rem 1.1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Name + chevron */
+.zp-name {
+    font-family: var(--font-impact);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+    padding-right: 1.6rem;
+    position: relative;
+}
+
+.zp-name::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.58rem;
+    color: var(--orange);
+    position: absolute;
+    right: 0.1rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.35s ease;
+    opacity: 0.6;
+}
+
+.zp-card.expanded .zp-name::after {
+    transform: translateY(-50%) rotate(180deg);
+    opacity: 1;
+}
+
+/* Kanji */
+.zp-kanji {
+    font-size: 0.76rem;
+    color: var(--mist);
+    margin-bottom: 0.45rem;
+    line-height: 1.4;
+}
+
+.zp-meaning {
+    color: var(--smoke);
+    font-style: italic;
+}
+
+/* Owner */
+.zp-owner {
+    font-size: 0.75rem;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.zp-owner i { font-size: 0.65rem; opacity: 0.7; }
+
+/* ── Expandable details ── */
+.zp-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.zp-card.expanded .zp-details {
+    max-height: 800px;
+    margin-top: 0.9rem;
+}
+
+/* Release block */
+.zp-release {
+    padding: 0.7rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    animation: slideInLeft 0.3s ease both;
+}
+
+.zp-card.expanded .zp-release:nth-child(1) { animation-delay: 0.08s; }
+.zp-card.expanded .zp-release:nth-child(2) { animation-delay: 0.16s; }
+.zp-card.expanded .zp-release:nth-child(3) { animation-delay: 0.24s; }
+
+.zp-release:first-child { border-top: none; }
+
+.zp-release-cmd {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--pale);
+    margin: 0.3rem 0 0.28rem;
+    font-style: italic;
+}
+
+.zp-release-desc {
+    font-size: 0.79rem;
+    color: var(--silver);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.zp-release--none .zp-release-desc {
+    color: var(--smoke);
+    font-style: italic;
+}
+
+/* ── Badges ── */
+.zp-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 2px;
+    font-weight: 700;
+}
+
+.zp-label--shikai {
+    background: rgba(30, 90, 200, 0.16);
+    color: #7aaaf5;
+    border: 1px solid rgba(30, 90, 200, 0.3);
+}
+
+.zp-label--bankai {
+    background: rgba(232, 99, 10, 0.14);
+    color: var(--orange-glow);
+    border: 1px solid rgba(232, 99, 10, 0.32);
+}
+
+.zp-label--resurreccion {
+    background: rgba(139, 0, 0, 0.18);
+    color: #e07070;
+    border: 1px solid rgba(139, 0, 0, 0.35);
+}
+
+.zp-label--resurreccion2 {
+    background: rgba(110, 0, 120, 0.2);
+    color: #d580d5;
+    border: 1px solid rgba(150, 0, 160, 0.35);
+}
+
+.zp-label--none {
+    background: rgba(80,80,80, 0.1);
+    color: var(--smoke);
+    border: 1px solid rgba(80,80,80,0.18);
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+    .zp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .zp-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+    .zp-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 639px) {
+    .zp-card:hover { transform: none; }
+    .zp-tabs-header { gap: 0; }
+    .zp-tab-btn { padding: 0.65rem 0.9rem; font-size: 0.7rem; }
+}
