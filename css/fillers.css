@@ -1,27 +1,27 @@
 /* ============================================
    BLEACH GUIDE — fillers.css
-   Cole no <head> após style.css
    ============================================ */
 
 /* ══════════════════════════════════════════
-   FILLERS SECTION
+   SEÇÃO FILLERS
 ══════════════════════════════════════════ */
 .fillers-section {
-    padding: 5rem 0 6rem;
+    padding: 5rem 0 7rem;
     background: var(--void);
     position: relative;
     overflow: hidden;
 }
 
+/* Linha decorativa topo */
 .fillers-section::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--orange-dim), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184,134,11,0.6), transparent);
 }
 
-/* Kanji watermark diferente para distinguir visualmente */
+/* Kanji decorativo de fundo */
 .fillers-section::after {
     content: '幻';
     position: absolute;
@@ -30,7 +30,7 @@
     font-size: clamp(14rem, 28vw, 26rem);
     font-family: var(--font-body);
     font-weight: 700;
-    color: rgba(255,255,255,0.012);
+    color: rgba(255,255,255,0.013);
     pointer-events: none;
     line-height: 1;
     z-index: 0;
@@ -39,32 +39,36 @@
 .fillers-content {
     position: relative;
     z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
 }
 
-/* ── Badge de aviso filler ── */
+/* ══════════════════════════════════════════
+   BADGE DE AVISO
+══════════════════════════════════════════ */
 .filler-notice {
     display: flex;
     align-items: flex-start;
-    gap: 0.85rem;
+    gap: 1rem;
     background: rgba(184, 134, 11, 0.07);
-    border: 1px solid rgba(184, 134, 11, 0.2);
+    border: 1px solid rgba(184, 134, 11, 0.18);
     border-left: 3px solid var(--gold-light);
     border-radius: var(--radius-md);
-    padding: 1rem 1.25rem;
-    margin-bottom: 2.5rem;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 3rem;
 }
 
 .filler-notice i {
     color: var(--gold-light);
     font-size: 1rem;
     flex-shrink: 0;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
 }
 
 .filler-notice p {
-    font-size: 0.82rem;
+    font-size: 0.83rem;
     color: var(--silver);
-    line-height: 1.65;
+    line-height: 1.7;
     margin: 0;
 }
 
@@ -72,25 +76,70 @@
     color: var(--gold-light);
 }
 
-/* ── Timeline override para fillers ──
-   A timeline de fillers usa as mesmas classes .arc-row, .arc-card, etc.
-   As regras abaixo sobrescrevem apenas o que muda: cor de acento
-   (gold ao invés de orange) e o nó numerado.
-── */
+/* ══════════════════════════════════════════
+   TIMELINE — OVERRIDES DA .fillers-timeline
+   (reutiliza .arc-row, .arc-card, etc.)
+══════════════════════════════════════════ */
+
+/* Espaçamento entre os itens da timeline */
+.fillers-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;      /* espaço entre cada arc-row */
+    position: relative;
+}
+
+/* Linha vertical dourada */
+.fillers-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 28px;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(184, 134, 11, 0.45) 8%,
+        var(--smoke) 40%,
+        rgba(184, 134, 11, 0.45) 92%,
+        transparent 100%
+    );
+    z-index: 0;
+}
+
+.arc-row {
+    text-indent: 1em;
+
+}
+
+/* Remove o margin-bottom do .arc-card herdado — o gap da timeline
+   já cuida do espaçamento */
+.fillers-timeline .arc-card {
+    margin-bottom: 0;
+}
+
+/* ── Nó numerado ── */
+.fillers-timeline .arc-node {
+    padding-top: 0;                  /* alinha verticalmente com o header do card */
+}
+
 .fillers-timeline .arc-node-number {
     font-size: 1rem;
     letter-spacing: 0.06em;
     color: var(--mist);
     border-color: var(--smoke);
+    /* centraliza com a altura do arc-card-header (80px) */
+    align-self: center;
+    margin-top: calc((80px - 56px) / 2);
 }
 
-/* Hover / aberto: usa gold em vez de orange */
+/* ── Hover e estado aberto: dourado ── */
 .fillers-timeline .arc-row:not(.coming-soon):hover .arc-node-number,
 .fillers-timeline .arc-row.arc-open .arc-node-number {
     background: var(--gold-light);
     border-color: var(--gold-light);
     color: var(--black);
-    box-shadow: 0 0 20px rgba(212, 160, 23, 0.35);
+    box-shadow: 0 0 22px rgba(212, 160, 23, 0.4);
 }
 
 .fillers-timeline .arc-row.arc-open .arc-node-number::before {
@@ -98,38 +147,149 @@
     transform: scale(1);
 }
 
-/* Card border open */
+/* Linha abaixo do nó — visível somente quando o card está aberto */
+.fillers-timeline .arc-node-line {
+    min-height: 0;
+    background: transparent;
+}
+
+/* ── Card hover / aberto ── */
 .fillers-timeline .arc-row:not(.coming-soon):hover .arc-card {
-    border-color: rgba(212, 160, 23, 0.2);
+    border-color: rgba(212, 160, 23, 0.25);
 }
 
 .fillers-timeline .arc-row.arc-open .arc-card {
-    border-color: rgba(212, 160, 23, 0.4);
-    box-shadow: 0 0 32px rgba(212, 160, 23, 0.07);
+    border-color: rgba(212, 160, 23, 0.45);
+    box-shadow: 0 4px 32px rgba(184, 134, 11, 0.09),
+                0 0 0 1px rgba(184, 134, 11, 0.08);
 }
 
-/* Chevron gold quando aberto */
+/* ── Header do card: alinhamento vertical centralizado ── */
+.fillers-timeline .arc-card-header {
+    align-items: center;
+    min-height: 80px;
+}
+
+/* Thumbnail centralizado dentro do header */
+.fillers-timeline .arc-thumb {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+/* Textos do header centralizados verticalmente */
+.fillers-timeline .arc-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.9rem 0;
+}
+
+/* ── Chevron dourado ── */
 .fillers-timeline .arc-row:not(.coming-soon):hover .arc-chevron,
 .fillers-timeline .arc-row.arc-open .arc-chevron {
     color: var(--gold-light);
 }
 
-/* Label de episódios (reutiliza .arc-events-label) com gold */
+/* ── Painel expandido ── */
+
+.arc-panel-image {
+    max-height: 230px;
+}
+
+
+/* Gradiente do painel aponta para void (fundo desta seção) */
+.fillers-timeline .arc-panel-image::after {
+    background: linear-gradient(
+        to bottom,
+        transparent 25%,
+        var(--charcoal) 100%
+    );
+}
+
+/* Label de episódios dourado */
 .fillers-timeline .arc-events-label {
     color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-/* Bullet points gold */
+/* Ícone antes do label de episódios */
+.fillers-timeline .arc-events-label::before {
+    content: '\f008'; /* fa-film */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.65rem;
+    opacity: 0.7;
+}
+
+/* Bullets dourados */
 .fillers-timeline .arc-events li::before {
     background: var(--gold-light);
+    box-shadow: 0 0 4px rgba(212, 160, 23, 0.5);
 }
 
-/* Linha vertical da timeline com gold */
-.fillers-timeline::before {
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(184, 134, 11, 0.5) 8%,
-        var(--smoke) 40%,
-        rgba(184, 134, 11, 0.5) 92%,
-        transparent 100%);
+/* Itens da lista com cor ligeiramente diferente */
+.fillers-timeline .arc-events li {
+    color: var(--pale);
+    line-height: 1.55;
+}
+
+/* Animação stagger até 6 itens */
+.fillers-timeline .arc-row.arc-open .arc-events li:nth-child(6) {
+    animation-delay: 0.50s;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (min-width: 768px) {
+    .fillers-timeline::before { left: 32px; }
+
+    .fillers-timeline .arc-node-number {
+        margin-top: calc((88px - 64px) / 2);
+    }
+
+    .fillers-timeline .arc-thumb { height: 88px; }
+
+    .fillers-timeline .arc-card-header { min-height: 88px; }
+
+    /* Painel: imagem + eventos lado a lado */
+    .fillers-timeline .arc-panel-inner {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .fillers-timeline .arc-panel-image {
+        height: auto;
+        min-height: 180px;
+    }
+
+    .fillers-timeline .arc-panel-image::after {
+        background: linear-gradient(
+            to right,
+            transparent 50%,
+            var(--charcoal) 100%
+        );
+    }
+}
+
+@media (min-width: 1024px) {
+    .fillers-timeline::before { left: 36px; }
+
+    .fillers-timeline .arc-panel-inner {
+        grid-template-columns: 280px 1fr;
+    }
+}
+
+@media (max-width: 639px) {
+    .fillers-content { max-width: 100%; }
+
+    .fillers-timeline { gap: 1rem; }
+
+    .fillers-timeline .arc-thumb { height: 72px; }
+
+    .fillers-timeline .arc-title { font-size: 1.05rem; }
+
+    .fillers-timeline .arc-description { display: none; }
 }
