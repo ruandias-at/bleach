@@ -1,246 +1,211 @@
-/* ============================================
-   BLEACH GUIDE — script.js
-   ============================================ */
-
 'use strict';
 
-/* ── Nav Toggle ── */
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu   = document.querySelector('.nav-menu');
+/* ============================================================
+   script.js — interações globais (todas as páginas)
+   ============================================================ */
 
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+/* ── Nav toggle (mobile) ── */
+function initNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const menu   = document.querySelector('.nav-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', open);
+        toggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
     });
 
-    // Close menu on link click
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
+    menu.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', false);
-            navToggle.querySelector('i').className = 'fas fa-bars';
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', false);
+            toggle.querySelector('i').className = 'fas fa-bars';
         });
     });
 }
 
 /* ── Header shadow on scroll ── */
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
-    if (header) {
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    window.addEventListener('scroll', () => {
         header.style.boxShadow = window.scrollY > 10
-            ? '0 2px 32px rgba(0,0,0,0.7)'
-            : 'none';
-    }
-}, { passive: true });
-
-/* ── Arc accordion (botão legado) ── */
-document.querySelectorAll('.arc-toggle:not(:disabled)').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const card    = btn.closest('.arc-card');
-        const details = card.querySelector('.arc-details');
-        if (!details) return;
-
-        const isOpen = details.classList.toggle('active');
-        btn.setAttribute('aria-expanded', isOpen);
-
-        const icon = btn.querySelector('i');
-        if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    });
-});
-
-/* ── Arc / Filler timeline rows — clique na linha inteira ── */
-document.querySelectorAll('.arc-row:not(.coming-soon)').forEach(row => {
-    row.addEventListener('click', () => {
-        const isOpen = row.classList.contains('arc-open');
-
-        // Fecha todos os outros na mesma timeline
-        const timeline = row.closest('.arcs-timeline');
-        if (timeline) {
-            timeline.querySelectorAll('.arc-row.arc-open').forEach(other => {
-                if (other !== row) other.classList.remove('arc-open');
-            });
-        }
-
-        row.classList.toggle('arc-open', !isOpen);
-    });
-});
-
-/* ── Character accordion — click anywhere on the card ── */
-document.querySelectorAll('.character-card').forEach(card => {
-    card.addEventListener('click', () => {
-        const details = card.querySelector('.character-details');
-        if (!details) return;
-
-        const isOpen = !details.classList.contains('active');
-
-        // Close others in the same grid
-        const grid = card.closest('.characters-grid');
-        if (grid) {
-            grid.querySelectorAll('.character-card').forEach(other => {
-                if (other !== card) {
-                    other.querySelector('.character-details')?.classList.remove('active');
-                    other.classList.remove('expanded');
-                }
-            });
-        }
-
-        details.classList.toggle('active', isOpen);
-        card.classList.toggle('expanded', isOpen);
-    });
-});
-
-/* ── Tabs ── */
-const tabButtons = document.querySelectorAll('.tab-button');
-const tabPanes   = document.querySelectorAll('.tab-pane');
-
-tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const target = btn.dataset.tab;
-
-        // Update buttons
-        tabButtons.forEach(b => {
-            b.classList.toggle('active', b === btn);
-            b.setAttribute('aria-selected', b === btn);
-        });
-
-        // Update panes
-        tabPanes.forEach(pane => {
-            const isTarget = pane.id === `tab-${target}`;
-            pane.classList.toggle('active', isTarget);
-        });
-
-        // Trigger stagger on newly visible grids
-        const activePane = document.getElementById(`tab-${target}`);
-        if (activePane) {
-            activePane.querySelectorAll('.reveal-stagger').forEach(el => {
-                if (!el.classList.contains('visible')) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-    });
-});
-
-/* ── Scroll-reveal (IntersectionObserver) ── */
-function initReveal() {
-    // Add classes to target elements
-    document.querySelectorAll('.arc-card').forEach(el => el.classList.add('reveal'));
-    document.querySelectorAll('.arcs-grid').forEach(el => el.classList.add('reveal-stagger'));
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Once visible, stop observing
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px'
-    });
-
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+            ? '0 2px 32px rgba(0,0,0,0.7)' : 'none';
+    }, { passive: true });
 }
 
-/* ── Smooth anchor scroll ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
+/* ── Scroll-reveal ── */
+function initReveal() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        const headerH = header ? header.offsetHeight : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+    document.querySelectorAll('.tab-pane.active .reveal-stagger').forEach(el => el.classList.add('visible'));
+}
 
-        window.scrollTo({ top, behavior: 'smooth' });
+/* ── Arc timeline rows ── */
+function initArcRows() {
+    document.querySelectorAll('.arc-row:not(.coming-soon)').forEach(row => {
+        row.addEventListener('click', () => {
+            const open = row.classList.contains('arc-open');
+            const timeline = row.closest('.arcs-timeline');
+            if (timeline) timeline.querySelectorAll('.arc-row.arc-open').forEach(o => {
+                if (o !== row) o.classList.remove('arc-open');
+            });
+            row.classList.toggle('arc-open', !open);
+        });
     });
-});
+}
 
-/* ══════════════════════════════════════════
-   ZANPAKUTŌ SECTION
-══════════════════════════════════════════ */
-function initZanpakutoSection() {
+/* ── Filler cards ── */
+function initFillerCards() {
+    document.querySelectorAll('.filler-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const open = card.classList.contains('filler-open');
+            document.querySelectorAll('.filler-card.filler-open').forEach(o => {
+                if (o !== card) o.classList.remove('filler-open');
+            });
+            card.classList.toggle('filler-open', !open);
+        });
+    });
+}
 
-    /* ── Sub-abas (Zanpakutō | Ressurreições) ── */
+/* ── Character cards ── */
+function initCharacterCards() {
+    document.querySelectorAll('.character-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const details = card.querySelector('.character-details');
+            if (!details) return;
+            const open = !details.classList.contains('active');
+            const grid = card.closest('.characters-grid');
+            if (grid) grid.querySelectorAll('.character-card').forEach(o => {
+                if (o !== card) {
+                    o.querySelector('.character-details')?.classList.remove('active');
+                    o.classList.remove('expanded');
+                }
+            });
+            details.classList.toggle('active', open);
+            card.classList.toggle('expanded', open);
+        });
+    });
+}
+
+/* ── Tabs (personagens) ── */
+function initTabs() {
+    const buttons = document.querySelectorAll('.tab-button');
+    const panes   = document.querySelectorAll('.tab-pane');
+    if (!buttons.length) return;
+
+    buttons.forEach((btn, i) => {
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', btn.classList.contains('active'));
+
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+            buttons.forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-selected', b === btn);
+            });
+            panes.forEach(p => p.classList.toggle('active', p.id === `tab-${target}`));
+
+            const activePane = document.getElementById(`tab-${target}`);
+            activePane?.querySelectorAll('.reveal-stagger').forEach(el => el.classList.add('visible'));
+        });
+
+        btn.addEventListener('keydown', e => {
+            let idx = i;
+            if (e.key === 'ArrowRight') idx = (i + 1) % buttons.length;
+            if (e.key === 'ArrowLeft')  idx = (i - 1 + buttons.length) % buttons.length;
+            if (idx !== i) { buttons[idx].focus(); buttons[idx].click(); }
+        });
+    });
+}
+
+/* ── Zanpakutō section (sub-tabs + filtros + cards) ── */
+function initZanpakuto() {
+    /* Sub-abas */
     document.querySelectorAll('.zp-tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const target = btn.dataset.zptab;
-
-            document.querySelectorAll('.zp-tab-btn').forEach(b =>
-                b.classList.toggle('active', b === btn)
-            );
-            document.querySelectorAll('.zp-pane').forEach(pane =>
-                pane.classList.toggle('active', pane.id === `zp-${target}`)
-            );
+            document.querySelectorAll('.zp-tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+            document.querySelectorAll('.zp-pane').forEach(p => p.classList.toggle('active', p.id === `zp-${target}`));
         });
     });
 
-    /* ── Filtros por tipo ── */
+    /* Filtros */
     document.querySelectorAll('.zp-filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const pane = btn.closest('.zp-pane');
             if (!pane) return;
-
-            // Toggle active button
-            pane.querySelectorAll('.zp-filter-btn').forEach(b =>
-                b.classList.toggle('active', b === btn)
-            );
-
+            pane.querySelectorAll('.zp-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
             const filter = btn.dataset.filter;
-
             pane.querySelectorAll('.zp-card').forEach(card => {
                 const match = filter === 'all' || card.dataset.type === filter;
                 card.classList.toggle('zp-hidden', !match);
-                // Close expanded card if it's being hidden
                 if (!match) card.classList.remove('expanded');
             });
         });
     });
 
-    /* ── Cards clicáveis (expand/collapse) ── */
+    /* Cards */
     document.querySelectorAll('.zp-card').forEach(card => {
         card.addEventListener('click', () => {
-            const isOpen = !card.classList.contains('expanded');
-
-            // Fecha os outros cards da mesma grade
-            const grid = card.closest('.zp-grid');
-            if (grid) {
-                grid.querySelectorAll('.zp-card').forEach(other => {
-                    if (other !== card) other.classList.remove('expanded');
-                });
-            }
-
-            card.classList.toggle('expanded', isOpen);
+            const open = !card.classList.contains('expanded');
+            card.closest('.zp-grid')?.querySelectorAll('.zp-card').forEach(o => {
+                if (o !== card) o.classList.remove('expanded');
+            });
+            card.classList.toggle('expanded', open);
         });
     });
 }
 
-/* ── Init ── */
-document.addEventListener('DOMContentLoaded', () => {
-    initReveal();
-    initZanpakutoSection();
-
-    // Make initial tab's stagger grids visible immediately
-    document.querySelectorAll('.tab-pane.active .reveal-stagger').forEach(el => {
-        el.classList.add('visible');
-    });
-
-    // Keyboard nav for tabs
-    tabButtons.forEach((btn, i) => {
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-selected', btn.classList.contains('active'));
-
-        btn.addEventListener('keydown', e => {
-            let newIndex = i;
-            if (e.key === 'ArrowRight') newIndex = (i + 1) % tabButtons.length;
-            if (e.key === 'ArrowLeft')  newIndex = (i - 1 + tabButtons.length) % tabButtons.length;
-            if (newIndex !== i) {
-                tabButtons[newIndex].focus();
-                tabButtons[newIndex].click();
-            }
+/* ── Smooth anchor scroll ── */
+function initSmoothScroll() {
+    const header = document.querySelector('.header');
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.scrollY - (header?.offsetHeight ?? 0) - 16;
+            window.scrollTo({ top, behavior: 'smooth' });
         });
     });
-});
+}
+
+function initTransformationCards() {
+    document.querySelectorAll('.transformation-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const open = card.classList.contains('expanded');
+
+            document.querySelectorAll('.transformation-card.expanded').forEach(other => {
+                if (other !== card) {
+                    other.classList.remove('expanded');
+                }
+            });
+
+            card.classList.toggle('expanded', !open);
+        });
+    });
+}
+
+/* ── initPage — chamado pelo components.js após injetar header/footer ── */
+function initPage() {
+    initNav();
+    initHeaderScroll();
+    initReveal();
+    initArcRows();
+    initFillerCards();
+    initCharacterCards();
+    initTabs();
+    initZanpakuto();
+    initTransformationCards();
+    initSmoothScroll();
+}

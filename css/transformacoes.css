@@ -1,0 +1,647 @@
+/* ============================================
+   BLEACH GUIDE — transformacoes.css
+   Página de transformações do Ichigo
+   ============================================ */
+
+
+/* ══════════════════════════════════════════
+   TRANSFORMATIONS SECTION
+══════════════════════════════════════════ */
+
+.transformations-section {
+    padding: 4.5rem 0 7rem;
+    background: var(--black);
+    position: relative;
+}
+
+.transformations-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--orange-dim),
+        transparent
+    );
+}
+
+
+/* ══════════════════════════════════════════
+   INTRODUÇÃO
+══════════════════════════════════════════ */
+
+.transformations-intro {
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.transformations-intro p {
+    color: var(--mist);
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+
+/* ══════════════════════════════════════════
+   LISTA DE TRANSFORMAÇÕES
+══════════════════════════════════════════ */
+
+.transformations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+
+/* ══════════════════════════════════════════
+   TRANSFORMATION CARD
+══════════════════════════════════════════ */
+
+.transformation-card {
+    background: var(--charcoal);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+
+/* Barra laranja lateral */
+
+.transformation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--orange);
+
+    transition: height 0.4s ease;
+
+    z-index: 2;
+}
+
+.transformation-card:hover {
+    border-color: rgba(232, 99, 10, 0.25);
+    box-shadow:
+        0 10px 32px rgba(0,0,0,0.4),
+        0 0 18px rgba(232,99,10,0.06);
+}
+
+.transformation-card:hover::before,
+.transformation-card.expanded::before {
+    height: 100%;
+}
+
+
+/* ══════════════════════════════════════════
+   HEADER DA TRANSFORMAÇÃO
+══════════════════════════════════════════ */
+
+.transformation-header {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 1rem 1.25rem;
+
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+}
+
+
+/* Número */
+
+.transformation-num {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(232,99,10,0.25);
+    border-radius: 50%;
+
+    color: var(--orange);
+
+    font-family: var(--font-impact);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+
+    margin-right: 1rem;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+
+/* Informações do header */
+
+.transformation-header-text {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+
+/* Nome */
+
+.transformation-name {
+    font-family: var(--font-impact);
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
+    line-height: 1.05;
+
+    color: var(--white);
+
+    margin: 0;
+}
+
+
+/* Tipo */
+
+.transformation-type {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    color: var(--mist);
+
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.transformation-type i {
+    color: var(--orange);
+    font-size: 0.75rem;
+}
+
+
+/* Chevron */
+
+.transformation-chevron {
+    color: var(--mist);
+    font-size: 0.8rem;
+
+    margin-left: 1rem;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease;
+}
+
+
+/* Estado aberto */
+
+.transformation-card.expanded .transformation-num {
+    background: rgba(232,99,10,0.1);
+    border-color: var(--orange);
+    transform: scale(1.05);
+}
+
+.transformation-card.expanded .transformation-chevron {
+    color: var(--orange);
+    transform: rotate(180deg);
+}
+
+
+/* ══════════════════════════════════════════
+   PAINEL EXPANSÍVEL
+══════════════════════════════════════════ */
+
+.transformation-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+
+    opacity: 0;
+
+    transition:
+        grid-template-rows 0.45s ease,
+        opacity 0.3s ease;
+}
+
+.transformation-card.expanded .transformation-panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+
+/*
+   O overflow hidden fica no elemento interno
+   para permitir a animação de altura.
+*/
+
+.transformation-panel-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════
+   IMAGEM PRINCIPAL
+══════════════════════════════════════════ */
+
+.transformation-img-banner {
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    background: var(--void);
+}
+
+.transformation-img-banner::after {
+    content: '';
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.05) 0%,
+            rgba(0,0,0,0.15) 45%,
+            rgba(0,0,0,0.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+.transformation-img-banner img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+.transformation-card:hover
+.transformation-img-banner img {
+    transform: scale(1.025);
+}
+
+
+/* ══════════════════════════════════════════
+   CORPO DA TRANSFORMAÇÃO
+══════════════════════════════════════════ */
+
+.transformation-body {
+    padding: 1.75rem 1.5rem 1.6rem;
+}
+
+
+/* Descrição */
+
+.transformation-desc {
+    max-width: 850px;
+
+    color: var(--mist);
+
+    font-size: 0.88rem;
+    line-height: 1.75;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* ══════════════════════════════════════════
+   INFORMAÇÕES
+══════════════════════════════════════════ */
+
+.transformation-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.75rem;
+
+    margin-bottom: 1.6rem;
+}
+
+.transformation-info-item {
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius);
+
+    padding: 0.85rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.info-label {
+    color: var(--orange);
+
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: var(--white);
+
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+
+/* ══════════════════════════════════════════
+   PARTE INFERIOR
+══════════════════════════════════════════ */
+
+.transformation-bottom {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+
+/* Thumbnail */
+
+.transformation-img-thumb {
+    height: 150px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    background: var(--void);
+}
+
+.transformation-img-thumb img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.45s ease;
+}
+
+.transformation-img-thumb:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ══════════════════════════════════════════
+   CARACTERÍSTICAS
+══════════════════════════════════════════ */
+
+.transformation-features {
+    padding-top: 0.15rem;
+}
+
+.transformation-features-label {
+    color: var(--orange);
+
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    margin-bottom: 0.8rem;
+}
+
+.transformation-features ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+.transformation-features li {
+    position: relative;
+
+    padding-left: 1rem;
+
+    color: var(--mist);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.transformation-features li::before {
+    content: '◆';
+
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+
+    color: var(--orange);
+
+    font-size: 0.42rem;
+}
+
+
+/* ══════════════════════════════════════════
+   REVEAL
+══════════════════════════════════════════ */
+
+.transformations-list .transformation-card {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.transformations-list .transformation-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVIDADE — TABLET
+══════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+
+    .transformations-section {
+        padding-top: 5rem;
+    }
+
+    .transformation-header {
+        min-height: 90px;
+        padding: 1rem 1.5rem;
+    }
+
+    .transformation-name {
+        font-size: 1.5rem;
+    }
+
+    .transformation-body {
+        padding: 2rem;
+    }
+
+    .transformation-img-banner {
+        height: 320px;
+    }
+
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVIDADE — DESKTOP
+══════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+
+    .transformations-list {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .transformation-header {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+    }
+
+    .transformation-img-banner {
+        height: 360px;
+    }
+
+    .transformation-body {
+        padding: 2.25rem 2.25rem 2rem;
+    }
+
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVIDADE — MOBILE
+══════════════════════════════════════════ */
+
+@media (max-width: 559px) {
+
+    .transformations-section {
+        padding: 3rem 0 5rem;
+    }
+
+    .transformations-intro {
+        margin-bottom: 2.5rem;
+    }
+
+    .transformations-intro p {
+        font-size: 0.84rem;
+        line-height: 1.75;
+    }
+
+    .transformation-header {
+        min-height: 72px;
+        padding: 0.85rem 1rem;
+    }
+
+    .transformation-num {
+        width: 34px;
+        height: 34px;
+
+        font-size: 0.85rem;
+
+        margin-right: 0.75rem;
+    }
+
+    .transformation-name {
+        font-size: 1.1rem;
+    }
+
+    .transformation-type {
+        font-size: 0.58rem;
+    }
+
+    .transformation-chevron {
+        margin-left: 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .transformation-img-banner {
+        height: 200px;
+    }
+
+    .transformation-body {
+        padding: 1.35rem 1rem 1.25rem;
+    }
+
+    .transformation-desc {
+        font-size: 0.8rem;
+        line-height: 1.7;
+    }
+
+    .transformation-info {
+        grid-template-columns: 1fr;
+    }
+
+    .transformation-bottom {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .transformation-img-thumb {
+        height: 190px;
+    }
+
+}
+
+
+/* ══════════════════════════════════════════
+   ACESSIBILIDADE — REDUÇÃO DE MOVIMENTO
+══════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .transformation-card,
+    .transformation-card *,
+    .transformation-img-banner img,
+    .transformation-img-thumb img {
+        transition: none !important;
+    }
+
+}
