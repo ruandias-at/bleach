@@ -437,96 +437,267 @@ body {
 
 .arc-toggle { display: none; }
 
-/* ── CHARACTERS ── */
-.characters-section { padding: 3rem 0 5rem; background: var(--void); position: relative; }
-.characters-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--orange-dim), transparent); }
+/* ══════════════════════════════════════════
+   CHARACTERS — redesign mobile-first
+══════════════════════════════════════════ */
+.characters-section {
+    padding: 3rem 0 5rem;
+    background: var(--void);
+    position: relative;
+}
 
-.tabs-container { border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
-.tabs-header { display: flex; flex-wrap: wrap; background: var(--ink); border-bottom: 1px solid rgba(232,99,10,0.2); }
+.characters-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange-dim), transparent);
+}
+
+/* ── Tabs header ── */
+.tabs-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.tabs-header {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: var(--ink);
+    border-bottom: 1px solid rgba(232,99,10,0.15);
+    /* Prevent wrapping — tabs scroll horizontally on mobile */
+    flex-wrap: nowrap;
+}
+
+.tabs-header::-webkit-scrollbar { display: none; }
 
 .tab-button {
-    flex: 1 1 auto;
-    min-width: 110px;
+    flex: 0 0 auto;
     background: transparent;
     border: none;
-    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 2px solid transparent;
     color: var(--mist);
-    padding: 1rem 0.75rem;
+    /* Bigger tap target on mobile */
+    padding: 0.95rem 1.1rem;
     cursor: pointer;
     font-family: var(--font-display);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.45rem;
-    transition: var(--transition);
+    gap: 0.4rem;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+    min-height: 48px; /* WCAG touch target */
     position: relative;
 }
 
 .tab-button i { font-size: 1rem; }
 
-.tab-button::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background: var(--orange); transition: left 0.3s ease, right 0.3s ease; }
-.tab-button:hover { color: var(--pale); background: rgba(255,255,255,0.03); }
-.tab-button.active { color: var(--orange); background: rgba(232,99,10,0.06); }
-.tab-button.active::after { left: 0; right: 0; }
+.tab-button:hover { color: var(--pale); background: rgba(255,255,255,0.04); }
 
-.tabs-content { padding: 2.5rem 1.5rem; background: var(--charcoal); }
+.tab-button.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    background: rgba(232,99,10,0.06);
+}
+
+/* ── Tabs content ── */
+.tabs-content {
+    padding: 1.5rem 1rem;
+    background: var(--charcoal);
+}
+
 .tab-pane { display: none; }
-.tab-pane.active { display: block; animation: fadeInUp 0.45s ease both; }
+.tab-pane.active { display: block; animation: fadeInUp 0.4s ease both; }
 
-.group-title { font-family: var(--font-impact); font-size: 1.8rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.group-title i { color: var(--orange); font-size: 1.4rem; }
+/* ── Group / Division titles ── */
+.group-title {
+    font-family: var(--font-impact);
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-.division-subgroup { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+.group-title i { color: var(--orange); font-size: 1.3rem; }
+
+.division-subgroup {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
 .division-subgroup:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
 
-.division-title { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
-.division-title::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--orange); flex-shrink: 0; }
-.division-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+.division-title {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
 
-.characters-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+.division-title::before { content: ''; display: inline-block; width: 16px; height: 1px; background: var(--orange); flex-shrink: 0; }
+.division-title::after  { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
 
+/* ── Characters grid — 2 cols on mobile ── */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+/* ── Character card — compact vertical ── */
 .character-card {
     background: var(--ink);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
     position: relative;
-    padding-bottom: 0;
     cursor: pointer;
     user-select: none;
+    /* Smooth transitions */
+    transition:
+        border-color var(--transition),
+        box-shadow   var(--transition),
+        transform    var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
-.character-card:hover { transform: translateY(-4px); border-color: rgba(232,99,10,0.25); box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 16px rgba(232,99,10,0.08); }
-.character-card.expanded { border-color: rgba(232,99,10,0.35); }
+/* Active / pressed state for mobile */
+.character-card:active { transform: scale(0.97); }
 
-.character-image { height: 200px; overflow: hidden; position: relative; background: var(--ash); }
-.character-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 0%, transparent 55%); pointer-events: none; }
+.character-card:hover {
+    border-color: rgba(232,99,10,0.28);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45), 0 0 12px rgba(232,99,10,0.07);
+}
 
-.char-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
-.character-card:hover .char-img { transform: scale(1.06); }
+.character-card.expanded {
+    border-color: rgba(232,99,10,0.4);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55), 0 0 16px rgba(232,99,10,0.1);
+}
 
+/* ── Portrait image ── */
+.character-image {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    background: var(--ash);
+    flex-shrink: 0;
+}
+
+/* Gradient fades image into card body */
+.character-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(28,28,28,0.85) 100%
+    );
+    pointer-events: none;
+}
+
+.char-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.55s ease;
+}
+
+.character-card:hover .char-img    { transform: scale(1.07); }
+.character-card.expanded .char-img { transform: scale(1.04); }
+
+/* ── Name bar ── */
 .character-name {
     font-family: var(--font-impact);
-    font-size: 1.25rem;
+    font-size: 1rem;
     letter-spacing: 0.04em;
+    line-height: 1.15;
     color: var(--white);
-    padding: 0.85rem 2.75rem 0.4rem 1.25rem;
+    padding: 0.6rem 2rem 0.6rem 0.75rem;
     position: relative;
+    /* Ensure it doesn't shrink */
+    flex-shrink: 0;
+    min-height: 44px; /* touch target */
+    display: flex;
+    align-items: center;
 }
 
-.character-name::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.65rem; color: var(--orange); position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%) rotate(0deg); transition: transform 0.35s ease; opacity: 0.7; }
-.character-card.expanded .character-name::after { transform: translateY(-50%) rotate(180deg); opacity: 1; }
+/* Chevron indicator — rotates when expanded */
+.character-name::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.6rem;
+    color: var(--orange);
+    position: absolute;
+    right: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.35s ease;
+    opacity: 0.65;
+}
 
-.character-details { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1); padding: 0 1.25rem; }
-.character-details.active { max-height: 700px; padding-bottom: 1.25rem; }
-.character-details p { color: var(--silver); font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.3rem; }
+.character-card.expanded .character-name::after {
+    transform: translateY(-50%) rotate(180deg);
+    opacity: 1;
+}
+
+/* ── Expandable details ── */
+.character-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    /* Don't pad when collapsed */
+}
+
+.character-details.active {
+    max-height: 600px;
+}
+
+/* Inner padding only when open */
+.character-details-inner {
+    padding: 0 0.75rem 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 0.7rem;
+}
+
+/* If the HTML uses <div class="character-details"> directly without inner wrapper,
+   apply padding via a margin trick */
+.character-details p {
+    color: var(--silver);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+    padding: 0 0.75rem;
+}
+
+/* First p gets top padding only when active */
+.character-details.active p:first-child { padding-top: 0.7rem; }
+.character-details p:last-child { padding-bottom: 0.65rem; }
+
 .character-details strong { color: var(--orange); }
 
+/* Hide legacy toggle button — whole card is the button now */
 .character-toggle { display: none; }
 
 /* ── ABOUT ── */

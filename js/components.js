@@ -1,9 +1,5 @@
 'use strict';
 
-/* ============================================================
-   components.js — injeta header/footer e inicializa tudo
-   ============================================================ */
-
 (function () {
     const isSubpage = window.location.pathname.includes('/pages/');
     const root = isSubpage ? '../' : './';
@@ -14,7 +10,7 @@
         { href: `${root}pages/fillers.html`,     label: 'Fillers'     },
         { href: `${root}pages/personagens.html`, label: 'Personagens' },
         { href: `${root}pages/zanpakuto.html`,   label: 'Zanpakutō'   },
-        { href: `${root}pages/ichigo.html`,     label: 'Ichigo'      },
+        { href: `${root}pages/ichigo.html`,      label: 'Ichigo'      },
         { href: `${root}pages/sobre.html`,       label: 'Sobre'       },
     ];
 
@@ -32,7 +28,7 @@
         <header class="header">
             <div class="container">
                 <a href="${root}index.html" class="logo">
-                    <i class="fas fa-skull-crossbones"></i> Bleach
+                    Bleach
                 </a>
                 <nav class="nav">
                     <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
@@ -107,7 +103,7 @@
                     observer.unobserve(e.target);
                 }
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
 
         document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
         document.querySelectorAll('.tab-pane.active .reveal-stagger').forEach(el => el.classList.add('visible'));
@@ -148,23 +144,33 @@
             card.addEventListener('click', () => {
                 const details = card.querySelector('.character-details');
                 if (!details) return;
-                const open = !details.classList.contains('active');
+
+                const opening = !details.classList.contains('active');
+
+                /* Fecha outros na mesma grid */
                 const grid = card.closest('.characters-grid');
                 if (grid) {
                     grid.querySelectorAll('.character-card').forEach(o => {
-                        if (o !== card) {
-                            o.querySelector('.character-details')?.classList.remove('active');
-                            o.classList.remove('expanded');
-                        }
+                        if (o === card) return;
+                        o.querySelector('.character-details')?.classList.remove('active');
+                        o.classList.remove('expanded');
                     });
                 }
-                details.classList.toggle('active', open);
-                card.classList.toggle('expanded', open);
+
+                details.classList.toggle('active', opening);
+                card.classList.toggle('expanded', opening);
+
+                /* Scroll suave para o card no mobile */
+                if (opening && window.innerWidth < 768) {
+                    setTimeout(() => {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 80);
+                }
             });
         });
     }
 
-    /* ── Tabs (personagens) ── */
+    /* ── Tabs ── */
     function initTabs() {
         const buttons = document.querySelectorAll('.tab-button');
         const panes   = document.querySelectorAll('.tab-pane');
@@ -182,8 +188,18 @@
                 });
                 panes.forEach(p => p.classList.toggle('active', p.id === `tab-${target}`));
 
-                const activePane = document.getElementById(`tab-${target}`);
-                activePane?.querySelectorAll('.reveal-stagger').forEach(el => el.classList.add('visible'));
+                /* Fecha qualquer card aberto ao trocar de aba */
+                document.querySelectorAll('.character-card.expanded').forEach(c => {
+                    c.querySelector('.character-details')?.classList.remove('active');
+                    c.classList.remove('expanded');
+                });
+
+                document.getElementById(`tab-${target}`)
+                    ?.querySelectorAll('.reveal-stagger')
+                    .forEach(el => el.classList.add('visible'));
+
+                /* Scroll do tab header para deixar o botão visível */
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             });
 
             btn.addEventListener('keydown', e => {
@@ -197,7 +213,6 @@
 
     /* ── Zanpakutō section ── */
     function initZanpakuto() {
-        /* Sub-abas */
         document.querySelectorAll('.zp-tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const target = btn.dataset.zptab;
@@ -206,7 +221,6 @@
             });
         });
 
-        /* Filtros */
         document.querySelectorAll('.zp-filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const pane = btn.closest('.zp-pane');
@@ -221,7 +235,6 @@
             });
         });
 
-        /* Cards */
         document.querySelectorAll('.zp-card').forEach(card => {
             card.addEventListener('click', () => {
                 const open = !card.classList.contains('expanded');
@@ -249,9 +262,7 @@
 
     /* ── Boot ── */
     document.addEventListener('DOMContentLoaded', () => {
-        injectComponents();   /* injeta header e footer primeiro */
-
-        /* agora o DOM já tem o header — inicializa tudo */
+        injectComponents();
         initNav();
         initHeaderScroll();
         initReveal();
